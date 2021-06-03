@@ -5,6 +5,7 @@ import Navbar from './components/Navbar'
 import Signup from './screens/Signup';
 import Home from './screens/Home/Home';
 import GlobalStyle from './globalStyles'
+import SignIn from './screens/SignIn';
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
        <Route exact path='/' component={Home} />
        <Route path='/about' component={About} />
        <Route path='/contact' component={Contact} />
-       <Route path='/login' component={Signup} />
+       <Route path='/signup' component={Signup} />
+       <Route path='/login' component={SignIn} />
      </Switch>
    </Router>
   );

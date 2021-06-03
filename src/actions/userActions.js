@@ -1,7 +1,7 @@
   
 import axios from 'axios'
 
-export const register = (email, password) => async (dispatch) => {
+export const register = (name, email, password) => async (dispatch) => {
 
   try {
     dispatch({
@@ -16,7 +16,7 @@ export const register = (email, password) => async (dispatch) => {
 
     const { data } = await axios.post(
       'http://searcheduapiii.searchedu.co.in:4112/sample/user',
-      JSON.stringify({email,password}),
+      JSON.stringify({Namee:name,Email:email,Password:password}),
       config
     )
 
@@ -63,7 +63,7 @@ export const login = (email, password) => async (dispatch) => {
 
     const { data } = await axios.post(
       'http://searcheduapiii.searchedu.co.in:4112/sample/user',
-      { email, password },
+      JSON.stringify({Email:email,Password:password}),
       config
     )
 

@@ -2,36 +2,32 @@
 import React, { useState } from 'react'
 import { useHistory, Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { register } from '../actions/userActions'
+import { login } from '../actions/userActions'
 
-const Signup = () => {
+const SignIn = () => {
 
-   const [name, setName] = useState('')
-   const [email, setEmail] = useState('')
-   const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
-   const history = useHistory();
+  const history = useHistory();
 
   const dispatch = useDispatch()
 
-  const userRegister = useSelector((state) => state.userRegister)
-  const { error } = userRegister;
+  const userLogin = useSelector((state) => state.userLogin);
+  const { error } = userLogin;
 
    const handleSubmit = (e) => {
       e.preventDefault();
-      dispatch(register(name,email,password));
+      dispatch(login(email,password));
         setTimeout(() => {
          history.push('/')   
         }, 2000)
    }
+
   return (
-     <div className='container' > 
+    <div className='container' > 
             <form onSubmit={handleSubmit} className="white"> 
-                <h5 className="grey-text text-darken-3">Sign Up</h5>
-                <div className="input-field">
-                    <label htmlFor="name">Name</label>
-                    <input type="text" id="name" onChange={e => setName(e.target.value)} value={name} required/>
-                </div>
+                <h5 className="grey-text text-darken-3">Sign In</h5>
                 <div className="input-field">
                     <label htmlFor="email">Email</label>
                     <input type="email" id="email" onChange={e => setEmail(e.target.value)} value={email} required/>
@@ -41,7 +37,10 @@ const Signup = () => {
                     <input type="password" id="password" onChange={e => setPassword(e.target.value)} value={password} required/>
                 </div>
                 <div className="input-field">
-                    <button className="btn pink lighten-1 z-depth-0">Sign Up</button>
+                    <button className="btn pink lighten-1 z-depth-0">Sign In</button>
+                    <Link to='/signup' className="btn pink lighten-1 z-depth-0" style={{
+                        marginLeft:'1rem'
+                    }}>Sign Up</Link>
                      <div className="red-text center">
                         {error ? <p>Login Failed</p> : null}
                     </div>
@@ -51,4 +50,4 @@ const Signup = () => {
   )
 }
 
-export default Signup
+export default SignIn

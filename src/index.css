@@ -11,3 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.contact-form{
+background: rgba(34, 81, 134, 0.568);
+border-radius: 2rem;
+padding: 2rem;
+}
+
+.input{
+  outline: 0;
+  border: 0;
+  color: #fff !important;
+  background: rgba(0, 0, 0, 0.5) !important;
+  padding: 0.5rem !important;
+  height: auto;
+  border-radius: 1rem !important;
+}
+textarea{
+  width: 102.5%;
+  height: 250px !important;
+}
+
